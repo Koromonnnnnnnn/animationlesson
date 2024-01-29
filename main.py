@@ -118,7 +118,6 @@ while not gameover:
             # In this particular case, there are 8 frames (0 through 7)
         if frameNum > 7:
             frameNum = 0
-
     if vy < 0:
         # Ticker is a spedometer. We don't want Chicken animating as fast as the
         # processor can process! Update Animation Frame each time ticker goes over
