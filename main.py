@@ -15,12 +15,6 @@ xpos = 500  # xpos of player
 ypos = 200  # ypos of player
 vx = 0  # x velocity of player
 vy = 0
-# this list holds whether each key has been pressed
-
-Xmoving = False
-Ymoving = False
-# direction list that holds where the player is facing(ex. Left = 0, Right = 1, etc.)
-direction = [False, False, False, False]
 keys = [False, False, False, False]
 
 
