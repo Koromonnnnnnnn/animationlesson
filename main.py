@@ -43,11 +43,19 @@ while not gameover:
                 keys[0] = True
             elif event.key == pygame.K_RIGHT:
                 keys[1] = True
+            elif event.key == pygame.K_DOWN:
+                keys[2] = True
+            elif event.key == pygame.K_UP:
+                keys[3] = True
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 keys[0] = False
             elif event.key == pygame.K_RIGHT:
                 keys[1] = False
+            elif event.key == pygame.K_DOWN:
+                keys[2] = True
+            elif event.key == pygame.K_UP:
+                keys[3] = True
 
     # LEFT MOVEMENT
     if keys[0] == True:
@@ -69,6 +77,7 @@ while not gameover:
     # turn off velocity
     else:
         vx = 0
+        vy = 0
 
     # UPDATE POSITION BASED ON VELOCITY
 
@@ -79,6 +88,37 @@ while not gameover:
     # Update Animation Information
     # Only animate when in motion
     if vx < 0:  # left animation
+        # Ticker is a spedometer. We don't want Chicken animating as fast as the
+        # processor can process! Update Animation Frame each time ticker goes over
+        ticker += 1
+        if ticker % 10 == 0:  # only change frames every 10 ticks
+            frameNum += 1
+            # If we are over the number of frames in our sprite, reset to 0.
+            # In this particular case, there are 8 frames (0 through 7)
+        if frameNum > 7:
+            frameNum = 0
+    if vx > 0:  # right animation
+        # Ticker is a spedometer. We don't want Chicken animating as fast as the
+        # processor can process! Update Animation Frame each time ticker goes over
+        ticker += 1
+        if ticker % 10 == 0:  # only change frames every 10 ticks
+            frameNum += 1
+            # If we are over the number of frames in our sprite, reset to 0.
+            # In this particular case, there are 8 frames (0 through 7)
+        if frameNum > 7:
+            frameNum = 0
+    if vy > 0:  
+        # Ticker is a spedometer. We don't want Chicken animating as fast as the
+        # processor can process! Update Animation Frame each time ticker goes over
+        ticker += 1
+        if ticker % 10 == 0:  # only change frames every 10 ticks
+            frameNum += 1
+            # If we are over the number of frames in our sprite, reset to 0.
+            # In this particular case, there are 8 frames (0 through 7)
+        if frameNum > 7:
+            frameNum = 0
+            
+    if vy < 0:  
         # Ticker is a spedometer. We don't want Chicken animating as fast as the
         # processor can process! Update Animation Frame each time ticker goes over
         ticker += 1
