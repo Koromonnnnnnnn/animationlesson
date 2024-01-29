@@ -53,9 +53,9 @@ while not gameover:
             elif event.key == pygame.K_RIGHT:
                 keys[1] = False
             elif event.key == pygame.K_DOWN:
-                keys[2] = True
+                keys[2] = False
             elif event.key == pygame.K_UP:
-                keys[3] = True
+                keys[3] = False
 
     # LEFT MOVEMENT
     if keys[0] == True:
@@ -82,6 +82,7 @@ while not gameover:
     # UPDATE POSITION BASED ON VELOCITY
 
     xpos += vx  # update player xpos
+    ypos += vy
 
     # ANIMATION-------------------------------------------------------------------
 
@@ -107,7 +108,7 @@ while not gameover:
             # In this particular case, there are 8 frames (0 through 7)
         if frameNum > 7:
             frameNum = 0
-    if vy > 0:  
+    if vy > 0:
         # Ticker is a spedometer. We don't want Chicken animating as fast as the
         # processor can process! Update Animation Frame each time ticker goes over
         ticker += 1
@@ -117,8 +118,8 @@ while not gameover:
             # In this particular case, there are 8 frames (0 through 7)
         if frameNum > 7:
             frameNum = 0
-            
-    if vy < 0:  
+
+    if vy < 0:
         # Ticker is a spedometer. We don't want Chicken animating as fast as the
         # processor can process! Update Animation Frame each time ticker goes over
         ticker += 1
